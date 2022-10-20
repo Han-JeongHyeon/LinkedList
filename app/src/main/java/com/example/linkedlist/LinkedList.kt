@@ -42,7 +42,7 @@ class LinkedList {
     private fun find(index: Int): Node? {
         var node = head
         for (i in 0 until index) {
-            node = node?.next ?: error("invalid node")
+            node = node?.next
         }
         return node
     }
@@ -88,11 +88,11 @@ class LinkedList {
         }
     }
 
-    fun removeFirst(): Int {
+    private fun removeFirst(): Int {
         val node = head
         head = node?.next
         size--
-        return node?.item ?: error("invalid item")
+        return node?.item!!
     }
 
     fun deleteAt(index : Int): Int{
@@ -107,7 +107,7 @@ class LinkedList {
             val deletedNode = node?.next
             node?.next = node?.next?.next
             size--
-            deletedNode?.item ?: error("invalid item")
+            deletedNode?.item!!
         }
     }
 
